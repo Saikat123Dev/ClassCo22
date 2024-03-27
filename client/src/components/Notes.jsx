@@ -49,7 +49,7 @@ function NoteSection() {
       <h2 className="text-3xl font-bold mb-6 dark:text-white">Note Section</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
-          <div className="bg-green-200 p-6 rounded-lg">
+          <div className="bg-green-900 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Add New Note</h3>
             <textarea
               type="text"
@@ -60,7 +60,7 @@ function NoteSection() {
             />
             <button
               onClick={addNote}
-              className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
+              className="mt-4 bg-green-500 text-black px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
             >
               Add Note
             </button>
@@ -82,13 +82,13 @@ function NoteSection() {
                       />
                       <button
                         onClick={updateNote}
-                        className="mt-2 bg-blue-500 text-black px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
+                        className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
                       >
                         Update
                       </button>
                     </div>
                   ) : (
-                    <div className="flex items-center justify-between text-black">
+                    <div className="flex items-center justify-between text-white">
                       <span>{note.content}</span>
                       <div>
                         <button
@@ -99,7 +99,7 @@ function NoteSection() {
                         </button>
                         <button
                           onClick={() => deleteNote(note.id)}
-                          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none"
+                          className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none"
                         >
                           Delete
                         </button>
