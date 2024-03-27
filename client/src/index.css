@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+html,
+body,
+#root,
+.app,
+.content {
+    height: 100%;
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.app {
+    display: flex;
+    position: relative;
+}
+
+/* Scrollbar */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #585965 #e0e0e0;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #4a5975;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #272f56;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #30345d;
+    border-radius: 3px;
+    /* border: 1px solid #4c4d56; */
+}
