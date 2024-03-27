@@ -38,7 +38,7 @@ useEffect(() => {
 
   const cardStyle = {
     ...divStyle,
-    background: '#2f2f2f',
+    background: '#12f8f12f',
     borderRadius: '8px',
     padding: '20px',
     display: 'flex',
@@ -50,10 +50,10 @@ useEffect(() => {
   };
 
   const cardHoverStyle = {
-    background: '#4f4f4f',
+    background: '#2f6f6f',
     borderRadius: '10px',
     boxShadow: 'rgba(0, 0, 0, 0.8) 0px 2px 20px, rgba(0, 0, 0, 0.6) 0px 15px 15px -7px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset',
-    transform: 'scale(1.05)',
+    transform: 'scale(1.08)',
   };
 
   // State to track hover state for each card
@@ -63,7 +63,7 @@ useEffect(() => {
   const [isHovered4, setIsHovered4] = useState(false);
 
   return (
-    <main className="main-container dark-theme">
+    <main className="main-container dark-theme" style={{ backgroundColor: '#0605333e' }}>
       {/* Main title */}
       <div className="main-title dark-bg">
         <h2 className="text-2xl font-bold">Hi there, Welcome to ClassConnect</h2>
@@ -154,32 +154,33 @@ useEffect(() => {
       </div>
       
 
-      <div className="bg-[#2f2f2f] rounded-xl dark-card shadow-xl p-4 pt-8 mt-6 "
+      <div className="bg-[#286f6f56] rounded-xl dark-card shadow-xl p-4 pt-6 mt-6 pl-14 pr-14 "
   style={{
     boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 14px, rgba(0, 0, 0, 0.3) 0px 13px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset'
   }}
   hoverStyle={{
     boxShadow: 'rgba(0, 0, 0, 0.8) 0px 2px 20px, rgba(0, 0, 0, 0.6) 0px 15px 15px -7px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset'
   }}>
-  <h1 className="text-center text-3xl font-bold text-white">Pending Assignment</h1>
-  <table className="w-full text-white border-collapse rounded-xl">
+<h1 className="text-center text-3xl font-bold text-white pb-7">Pending Assignments</h1>
+
+  <table className="w-full text-white border-collapse rounded-xl border border-gray-400">
     <thead>
       <tr>
-        <th className="p-2 border border-white ">Subject</th>
-        <th className="p-2 border border-white">Teachers Name</th>
-        <th className="p-2 border border-white">Deadline</th>
-        <th className="p-2 border border-white">Status</th>
-        <th className="p-2 border border-white">Priority</th>
+        <th className="p-2 border border-gray-400 ">Subject</th>
+        <th className="p-2 border border-gray-400">Teachers Name</th>
+        <th className="p-2 border border-gray-400">Deadline</th>
+        <th className="p-2 border border-gray-400">Status</th>
+        <th className="p-2 border border-gray-400">Priority</th>
       </tr>
     </thead>
    <tbody>
   {assignments.map((assignment) => (
     <tr key={assignment.id}>
-      <td className="p-2 border border-white">{assignment.subject}</td>
-      <td className="p-2 border border-white">{assignment.teacherName}</td>
-      <td className="p-2 border border-white">{assignment.deadline}</td>
-      <td className="p-2 border border-white">Pending</td>
-      <td className="p-2 border border-white">High</td>
+      <td className="p-2 border border-gray-400">{assignment.subject}</td>
+      <td className="p-2 border border-gray-400">{assignment.teacherName}</td>
+      <td className="p-2 border border-gray-400">{assignment.deadline}</td>
+      <td className="p-2 border border-gray-400">Pending</td>
+      <td className="p-2 border border-gray-400">High</td>
     </tr>
   ))}
 </tbody>
@@ -187,6 +188,7 @@ useEffect(() => {
   </table>
 
 </div>
+
 
 
 

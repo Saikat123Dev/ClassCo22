@@ -1,27 +1,30 @@
 .container {
   margin: auto;
   margin-top: 40px;
-  background: whitesmoke;
-  color: #262626;
+  background: #2d2d2d; /* Dark background color */
+  color: #ffffff; /* Text color for dark theme */
   display: flex;
   flex-direction: column;
-  height:700px;
+  height: 700px;
   gap: 20px;
   border-radius: 10px;
   padding: 40px 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for depth */
 }
+
 .container hr {
   height: 2px;
   border: none;
-  background: #f7d3c9;
+  background: #00ff15; /* Line color for dark theme */
 }
+
 .container h2 {
   font-size: 28px;
-
   font-weight: 500;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
 .container ul li {
   display: flex;
   align-items: center;
@@ -33,7 +36,13 @@
   font-size: 20px;
   cursor: pointer;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  transition: background-color 0.3s ease; /* Transition effect for hover */
 }
+
+.container ul li:hover {
+  background-color: #4d4d4d; /* Hover background color */
+}
+
 .container button {
   margin: auto;
   width: 230px;
@@ -44,12 +53,19 @@
   font-weight: 500;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Transition effect for hover */
 }
+
+.container button:hover {
+  background-color: #00ff1a84; /* Hover background color */
+}
+
 .correct {
-  background: green;
+  background: rgb(11, 172, 11);
   border-color: #262626;
 }
+
 .incorrect {
-  background: red;
+  background: rgba(255, 0, 0, 0.746);
   border-color: #2626;
 }

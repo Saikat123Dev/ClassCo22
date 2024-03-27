@@ -26,29 +26,27 @@ function Home() {
   ];
 
   const divStyle = {
-    height: "170px",
+    height: '170px',
   };
 
   const cardStyle = {
     ...divStyle,
-    background: "#2f2f2f",
-    borderRadius: "8px",
-    padding: "20px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    boxShadow:
-      "rgba(0, 0, 0, 0.4) 0px 2px 14px, rgba(0, 0, 0, 0.3) 0px 13px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-    transition: "all 0.3s ease",
+    background: '#12f8f12f',
+    borderRadius: '8px',
+    padding: '20px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 14px, rgba(0, 0, 0, 0.3) 0px 13px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
+    transition: 'all 0.3s ease',
   };
 
   const cardHoverStyle = {
-    background: "#4f4f4f",
-    borderRadius: "10px",
-    boxShadow:
-      "rgba(0, 0, 0, 0.8) 0px 2px 20px, rgba(0, 0, 0, 0.6) 0px 15px 15px -7px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset",
-    transform: "scale(1.05)",
+    background: '#2f6f6f',
+    borderRadius: '10px',
+    boxShadow: 'rgba(0, 0, 0, 0.8) 0px 2px 20px, rgba(0, 0, 0, 0.6) 0px 15px 15px -7px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset',
+    transform: 'scale(1.08)',
   };
 
   // State to track hover state for each card
@@ -58,7 +56,7 @@ function Home() {
   const [isHovered4, setIsHovered4] = useState(false);
 
   return (
-    <main className="main-container dark-theme">
+    <main className="main-container dark-theme" style={{ backgroundColor: '#0605333e' }}>
       <div className="main-title dark-bg">
         <h2 className="text-2xl font-bold">
           Hi there, Welcome to ClassConnect

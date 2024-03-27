@@ -4,7 +4,7 @@
 }
 
 .quiz {
-    background-image: url('https://steemitimages.com/640x0/https://cdn.steemitimages.com/DQmb47hWqq4WdnTa8Ddn9ApcNTDgvadnFTijHhtbvup6JB2/imagen.png');
+    background-color: rgba(3, 1, 24, 0.234);
     background-size: cover;
     background-position: center;
     min-height: 100vh;

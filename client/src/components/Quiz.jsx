@@ -1,7 +1,9 @@
-import { useRef, useState, useEffect,createRef } from 'react';
+import { useRef, useState, useEffect, createRef } from 'react';
 import './Quiz.css';
-import correctSound from "../assets/correct-6033.mp3";
-import wrongSound from "../assets/wrong-buzzer-6268.mp3";
+import correctSound from "../assets/7_Crore.mp3";
+import wrongSound from "../assets/Ayein.mp3";
+import bgmSound from "../assets/bgm.mp3"; 
+
 function Quiz() {
   const [quizData, setQuizData] = useState([]);
   const [index, setIndex] = useState(0);
@@ -9,9 +11,13 @@ function Quiz() {
   const [lock, setLock] = useState(false);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(false);
-    const [timer, setTimer] = useState(10); 
-   const correctAudio = useRef(null);
+  const[correct,setCorrect]=useState(0);
+  const[wrong,setWrong]=useState(0);
+  const[totalquestions,settotalQuestions]=useState([]);
+  const [timer, setTimer] = useState(10); 
+  const correctAudio = useRef(null);
   const wrongAudio = useRef(null);
+  const bgmAudio = useRef(null); // Ref for the background sound
   const optionRefs = useRef([]);
 
   useEffect(() => {
@@ -26,8 +32,17 @@ function Quiz() {
       })
       .catch((error) => console.error('Error fetching quiz data:', error));
   }, []);
-  
- useEffect(() => {
+
+  useEffect(() => {
+    bgmAudio.current.volume = 1; // Adjust the volume of the background sound if needed
+    bgmAudio.current.loop = true; // Make the background sound loop continuously
+    bgmAudio.current.play(); // Start playing the background sound
+    return () => {
+      bgmAudio.current.pause(); // Pause the background sound when the component unmounts
+    };
+  }, []);
+
+  useEffect(() => {
     const timerId = setTimeout(() => {
       if (timer > 0 && !result) {
         setTimer(timer - 1);
@@ -39,7 +54,6 @@ function Quiz() {
     return () => clearTimeout(timerId);
   }, [timer, result]);
 
-
   useEffect(() => {
     if (quizData.length > 0) {
       setQuestion(quizData[index]);
@@ -48,7 +62,9 @@ function Quiz() {
   }, [quizData, index]);
 
   const checkAnswer = (e, ans) => {
-    console.log(ans)
+    settotalQuestions[index];
+    console.log("ans")
+  
     if (!lock) {
      
       if (question.answer === ans.toString()) {
@@ -56,12 +72,14 @@ function Quiz() {
         e.target.classList.add('correct');
         setLock(true);
         setScore((prevScore) => prevScore + 2);
-           correctAudio.current.play();
+        correctAudio.current.play();
+        setCorrect(correct+1);
       } else {
         e.target.classList.add('incorrect');
         setLock(true);
         optionRefs.current[parseInt(question.answer) - 1].current.classList.add('correct');
-           wrongAudio.current.play();
+        wrongAudio.current.play();
+        setWrong(wrong+1);
       }
     }
   };
@@ -82,14 +100,20 @@ function Quiz() {
 
   const resetQuiz = () => {
     setIndex(0);
-    setQuestion(quizData[index]);
+    setQuestion(quizData[0]);
     setLock(false);
     setScore(0);
     setResult(false);
     setTimer(10); 
+    settotalQuestions(0);
+    setWrong(0);
+    setCorrect(0);
+
+
+
   };
  
-    const formatTime = (time) => {
+  const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -98,11 +122,14 @@ function Quiz() {
   return (
     <div className="container w-[650px] mt-5">
       <h1>Attempt the Quiz</h1>
-       <div className='timer'>Time Remaining: {formatTime(timer)}</div>
+      <div className='timer'>Time Remaining: {formatTime(timer)}</div>
       <hr />
       {result ? (
         <>
-          <h2>You Scored {score} out of {quizData.length * 2}</h2>
+        <h2>You Scored {score} out of {quizData.length * 2}</h2>
+            <h3>Total Number of Questions:{quizData.length}</h3>
+            <h3>Total Number of Correct Answers:{correct}</h3>
+            <h3>Total Number of Incorrect Answers:{wrong}</h3>
           <button onClick={resetQuiz}>Reset</button>
         </>
       ) : (
@@ -126,8 +153,9 @@ function Quiz() {
               <div className='index'>{index + 1} of {quizData.length}</div>
             </>
           )}
-             <audio ref={correctAudio} src={correctSound} />
-      <audio ref={wrongAudio} src={wrongSound} />
+          <audio ref={correctAudio} src={correctSound} />
+          <audio ref={wrongAudio} src={wrongSound} />
+          <audio ref={bgmAudio} src={bgmSound} autoPlay loop /> {/* Add background sound */}
         </>
       )}
     </div>
